@@ -38,7 +38,7 @@ def play_page(board, thread):
     resp = requests.get("https://a.4cdn.org/"+board+"/thread/"+thread+".json").json()
     posts = [post for post in resp['posts'] if 'ext' in post and post['ext'] == '.webm']
 
-    pass
+    return render_template("play.html", posts=json.dumps(posts), board=board, thread=thread)
 
 
 
