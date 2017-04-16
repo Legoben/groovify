@@ -55,7 +55,7 @@ def download_mp3(board, tim):
     mp3name = "static/mp3/"+url.split("/")[-1].split(".")[0]+".mp3"
     song.export(mp3name, format="mp3")
 
-    # os.remove(filename)
+    os.remove(filename)
 
     return send_file(mp3name, mimetype='audio/mpeg')
 

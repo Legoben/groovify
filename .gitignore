@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+static/mp3/
+static/webm/
+
 # Distribution / packaging
 .Python
 env/
