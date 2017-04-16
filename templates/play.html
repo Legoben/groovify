@@ -9,7 +9,8 @@
     <script src="{{ url_for("static", filename="js/visualize.js") }}"></script>
     <script>var posts = {{ posts|safe }};
     var board = '{{ board }}';
-    var thread = '{{ thread }}';</script>
+    var thread = '{{ thread }}';
+    var tname = '{{ tname }}';</script>
 
 {% endblock %}
 
@@ -62,7 +63,7 @@
                 </button>
                 <span class="navbar-brand"><a href="/"><b>[Groovify]</b></a>
                     <small> / <a v-bind:href="BoardURL">{{ board }}</a>
-                        / <a v-bind:href="ThreadURL">{{ thread }}</a>
+                        / <a v-bind:href="ThreadURL">{{ tname }}</a>
                         / <a v-bind:href="PostURL">{{ filename }}</a></small>
                 </span>
             </div>

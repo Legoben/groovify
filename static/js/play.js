@@ -9,6 +9,7 @@ $(document).ready(function () {
             return {
                 board: board,
                 thread: thread,
+                tname: tname,
                 paused: false,
                 looped: false,
                 duration: 0,
