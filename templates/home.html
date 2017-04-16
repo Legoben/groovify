@@ -54,12 +54,12 @@
                         <div class="card-block">
                             <h3 class="card-title">{{ thread['sub'] }}</h3>
                             <p class="card-text">{{ thread['com']|safe }}</p>
-                            <a target="_blank" href="play/wsg/{{ thread['no'] }}" class="btn btn-primary">Let's go!</a>
+                            <a href="play/wsg/{{ thread['no'] }}" class="btn btn-primary">Let's go!</a>
                         </div>
                     </div>
                 {% endfor %}
 
-                <h2><strong>[gif]</strong></h2>
+                <h2><strong>[gif]</strong><small>(nsfw)</small></h2>
 
                 {% for thread in threads['gif'] %}
                     <div class="card card-outline-primary mb-3 text-cente" style="width: 20rem; padding-bottom: 30px;">
@@ -67,7 +67,7 @@
                         <div class="card-block">
                             <h3 class="card-title">{{ thread['sub'] }}</h3>
                             <p class="card-text">{{ thread['com']|safe }}</p>
-                            <a target="_blank" href="play/gif/{{ thread['no'] }}" class="btn btn-primary">Let's go!</a>
+                            <a href="play/gif/{{ thread['no'] }}" class="btn btn-primary">Let's go!</a>
                         </div>
                     </div>
                 {% endfor %}

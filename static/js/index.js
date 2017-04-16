@@ -1,5 +1,5 @@
 var banner = $("#dynamic-banner");
-var messages = ['Get ready to groove.', ''];
+var messages = ['Have a good time, you deserve it.', ''];
 var images = ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif'];
 
 var i = 0;

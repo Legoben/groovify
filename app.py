@@ -28,8 +28,6 @@ def homepage():
 
     wsg = get_threads("wsg")
     gif = get_threads("gif")
-
-
     return render_template("home.html", threads = {"wsg":wsg, "gif":gif})
 
 
@@ -38,8 +36,9 @@ def homepage():
 def play_page(board, thread):
     resp = requests.get("https://a.4cdn.org/"+board+"/thread/"+thread+".json").json()
     posts = [post for post in resp['posts'] if 'ext' in post and post['ext'] == '.webm']
+    tname = resp['posts'][0]['sub']
 
-    return render_template("play.html", posts=json.dumps(posts), board=board, thread=thread)
+    return render_template("play.html", posts=json.dumps(posts), board=board, thread=thread, tname=tname)
 
 
 @app.route("/mp3/<board>/<tim>")
