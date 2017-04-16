@@ -18,6 +18,14 @@ body{
     color: white !important;
 }
 
+#header .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 #mainvid{
     height:100%;
     width:100%;
@@ -28,8 +36,7 @@ body{
 
 #maincontrols{
     margin: auto 0;
-    top:0;
-    bottom:0;
+    bottom:10px;
     height:100px;
     width:100%;
     opacity: 0.9;

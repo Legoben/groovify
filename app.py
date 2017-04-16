@@ -1,7 +1,8 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, send_file
 import json
 import requests
 import os
+import pydub
 
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ def homepage():
     gif = get_threads("gif")
 
 
-    return render_template("index.html", threads = {"wsg":wsg, "gif":gif})
+    return render_template("home.html", threads = {"wsg":wsg, "gif":gif})
 
 
 
@@ -39,6 +40,25 @@ def play_page(board, thread):
     posts = [post for post in resp['posts'] if 'ext' in post and post['ext'] == '.webm']
 
     return render_template("play.html", posts=json.dumps(posts), board=board, thread=thread)
+
+
+@app.route("/mp3/<board>/<tim>")
+def download_mp3(board, tim):
+    url = "https://i.4cdn.org/"+board+"/"+tim+".webm"  # placeholder url
+    data = requests.get(url).content
+    filename = "static/webm/"+url.split("/")[-1]
+    with open(filename, 'wb') as f:
+        f.write(data)
+
+
+    pydub.AudioSegment.converter = "ffmpeg"
+    song = pydub.AudioSegment.from_file(filename)
+    mp3name = "static/mp3/"+url.split("/")[-1].split(".")[0]+".mp3"
+    song.export(mp3name, format="mp3")
+
+    # os.remove(filename)
+
+    return send_file(mp3name, mimetype='audio/mpeg')
 
 
 
